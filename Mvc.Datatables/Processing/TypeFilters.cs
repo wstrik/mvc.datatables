@@ -196,7 +196,12 @@ namespace Mvc.Datatables.Processing
                 //return string.Format("{0} ==  {1}", columnname, parameterArg);
                 return
                     string.Format(
-                        "({0} != null && {0} != \"\" && ({0} ==  {1} || {0}.StartsWith({1}) || {0}.Contains({1})))",
+                    /*
+                     * Gewijzigd door Wietze Sttrik
+                     * Case insensite gemaakt
+                     */
+                    //"({0} != null && {0} != \"\" && ({0} ==  {1} || {0}.StartsWith({1}) || {0}.Contains({1})))",
+                        "({0} != null && {0} != \"\" && ({0} ==  {1} || {0}.StartsWith({1}) || {0}.ToLower().Contains(({1}).ToLower())))",
                         columnname, parameterArg);
             }
         }
